@@ -34,7 +34,7 @@ function onPlayerReady(event){
 function onPlayerStateChange(event){
     if (Math.floor(player.getCurrentTime())==playTime[currentPlay][1]){
         //正常播下一首
-        if (currentPlay<playlist.length-1){
+        if (currentPlay<playList.length-1){
             currentPlay++;
             player.loadVideoById({
                 "videoId":playList[currentPlay],
