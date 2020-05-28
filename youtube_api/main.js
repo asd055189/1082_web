@@ -26,7 +26,7 @@ function onYouTubeIframeAPIReady(){
 
 function onPlayerReady(event){
     $("#playButton").click(function(){
-        $("h2").text(player.getVideoData().title);
+        $("h2#frame").text(player.getVideoData().title);
         player.playVideo();
     });
 }
@@ -53,6 +53,6 @@ function onPlayerStateChange(event){
         }
     }
     if(player.getVideoLoadedFraction()>0){
-        $("h2").text(player.getVideoData().title);
+        $("h2#frame").text(player.getVideoData().title);
     }
 }

@@ -1,29 +1,81 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Club Course</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Carousel Template for Bootstrap</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
-        <input type="date" id="input_date">
-        <button id = "submit">submit</button>
         <script src="topic.js"></script>
         <script src="main.js"></script>
-        
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <h1>社團課程時間表</h1>
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../carousel.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="../index.html">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../RandomSelector/index.html">晚餐吃什麼</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">社團排課表</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="../Mind test/index.html">心理測驗</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../RGB/index.html">RPG</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../youtube_api/index.html">點唱機</a>
+            </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../PDP quiz/index.html">PDP測驗</a>
+          </li>
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+        <div align="center">
+          <h1>社團課程時間表</h1>
+          <input type="date" id="input_date">
+          <button id = "submit">submit</button>
         <table id = "courseTable"></table>
-        
-    </body>
+        </div>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+  </body>
 </html>

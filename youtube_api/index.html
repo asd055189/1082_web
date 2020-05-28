@@ -1,19 +1,70 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>YouTube Player</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Carousel Template for Bootstrap</title>
         <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://www.youtube.com/iframe_api"></script>       
-        <script src="playlist.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>   
         <script src="main.js"></script>
-    </head>
-    <body>
-        <h1>Youtube 心情點唱機</h1>
-        <h2></h2>
-        <div id="player"></div>
-        <br>
-        <input type="button" id="playButton" value ="Play">        
-    </body>
+        <script src="playlist.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../carousel.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="../index.html">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../RandomSelector/index.html">晚餐吃什麼</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">社團排課表</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Mind test/index.html">心理測驗</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../RGB/index.html">RPG</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">點唱機</a>
+              </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../PDP quiz/index.html">PDP測驗</a>
+        </li>
+
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+       <h1 align="center">Youtube 心情點唱機</h1>
+       <div align="center">
+            <h2 id="frame"></h2>
+            <div  id="player"></div>
+            <br>
+            <input type="button" id="playButton" value ="Play">   
+         </div>     
+    </main>
+
+  </body>
 </html>

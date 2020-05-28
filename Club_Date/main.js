@@ -31,7 +31,7 @@ $(document).ready(function(){
             $('#courseTable').append(
                 trSpecial + 
                 "<td>"+(x+1)+"</td>"+
-                "<td>"+thisDate.toLocaleDateString().slice(5)+"</td>"+
+                "<td>"+thisDate.toLocaleDateString().slice(0,-5)+"</td>"+
                 "<td>"+topicsArray[x]+"</td>"+
                 "<tr>"
             );//每一列有場次、預計日期、主題        
