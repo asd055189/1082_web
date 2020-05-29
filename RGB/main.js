@@ -29,9 +29,12 @@ $(document).ready(function(){
         imgEnemy.onload=function(){
             for(let x in mapArray){
                 if(mapArray[x] == 1){
-                    ctx.drawImage(imgMountain,32,64,32,32,x%3*200, Math.floor(x/3)*200, 200, 200);
+                    ctx.drawImage(imgMountain,65,192,32,32,x%3*200, Math.floor(x/3)*200, 200, 200);
                 }else if(mapArray[x]==3){
                     ctx.drawImage(imgEnemy, 7, 40, 104, 135, x%3*200, Math.floor(x/3)*200, 200, 200);
+                }
+                else if(mapArray[x] == 2){
+                    ctx.drawImage(imgMountain,0,96,32,32,x%3*200, Math.floor(x/3)*200, 200, 200);
                 }
             }
         };
@@ -78,9 +81,14 @@ $(document).keydown(function(event){
     }
     //清除主角原本所在位置
     ctx.clearRect(currentImgMainX, currentImgMainY, 200, 200);
-    if(targetBlock == -1 || mapArray[targetBlock]==1 || mapArray[targetBlock]==3){
+    if(targetBlock == -1 || mapArray[targetBlock]==1 ){
         //所有異常(出界、遇到敵人、遇到障礙物都不動)
-    }else{//正常情況下設定新的位置
+    }else if (mapArray[targetBlock]==3){
+        $("#talkBox").empty();
+        currentImgMainX = 0;
+        currentImgMainY = 0;
+    }
+    else{//正常情況下設定新的位置
         $("#talkBox").empty();
         currentImgMainX = targetImgMainX;
         currentImgMainY = targetImgMainY;
@@ -93,13 +101,13 @@ $(document).keydown(function(event){
             $("#talkBox").text("邊界");
             break;
         case 1:
-            $("#talkBox").text("有山");
+            $("#talkBox").text("過不去");
             break;
         case 2:
-            $("#talkBox").text("抵達終點");
+            $("#talkBox").text("吃到了");
             break;
         case 3:
-            $("#talkBox").text("哈囉");
+            $("#talkBox").text("掉進去");
             break;
     }
 });

@@ -8,9 +8,10 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <script src="main.js" async defer></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link rel="stylesheet" href="style.css">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script src="qrcode.min.js"></script>
+        
         <script src="data.js"></script>
         <script src="main.js"></script>
     <!-- Bootstrap core CSS -->
@@ -39,7 +40,7 @@
               <a class="nav-link" href="../Club_Date/index.html">營業時間</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">心理測驗</a>
+              <a class="nav-link disabled" href="#">餐點選擇機</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../RGB/index.html">RPG</a>
@@ -58,23 +59,14 @@
     </header>
 
     <main role="main">
-       <H1 align="center">你的愛情是什麼滋味</H1>
+       <H1 align="center">餐點選擇機</H1>
         <div align="center"> 
             <h2 id="question"></h2>
             <div id="options"></div>
+            <div id="qrcode"></div>
             <input align="center" id="startButton" type="button" value="開始作答">
         </div>
         
     </main>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="assets/js/vendor/holder.min.js"></script>
   </body>
 </html>

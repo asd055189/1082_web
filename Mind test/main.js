@@ -1,7 +1,9 @@
 $(document).ready(function(){
+
     let currentQuiz=null;//目前作答到第幾題
     $('#startButton').click(function(){//按下按鈕後觸發事件
         if(currentQuiz ==null){
+            $('#qrcode').empty()
             currentQuiz = 0;//設定目前作答到第0題
             $('#question').text(questions[0].question);//顯示題目
             $('#options').empty();//清空選項區域
@@ -26,6 +28,11 @@ $(document).ready(function(){
                             $("#options").append(finalAnswers[finalResult][1]+"<br><br>");
                             currentQuiz=null;
                             $("#startButton").attr("value","Restart");
+                            $('#qrcode').qrcode({
+                                width: 300,
+                                height: 300,
+                                text: linkurl[finalResult][0]
+                              });
                         }else{//還在作答
                             currentQuiz = questions[currentQuiz].answers[i][1]-1;
                             $('#question').text(questions[currentQuiz].question);//顯示題目
