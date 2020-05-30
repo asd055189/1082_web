@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" async defer></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Carousel Template for Bootstrap</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="main.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../carousel.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Google Maps Place api demo - Augustus - Let's Write</title>
+    <link rel="canonical" href="https://letswrite.tw/google-map-api-place-api/">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+      .container {
+        padding-top: 30px;
+        padding-bottom: 30px;
+      }
+      #map {
+        background: #CCC;
+      }
+      ul {
+        padding-top: 16px;
+      }
+      .media img {
+        max-width: 64px;
+      }
+      .media h5, p {
+        font-size: 14px;
+      }
+      .mdeia p {
+        margin-bottom: 6px;
+      }
+      .media h6 {
+        font-size: 12px;
+        color: #CCC;
+      }
+      .fixed-bottom {
+        position: fixed;
+        left: 16px;
+        bottom: 0;
+        max-width: 320px;
+      }
+    </style>
+
+    <link rel="shortcut icon" href="https://i0.wp.com/letswrite.tw/wp-content/uploads/2019/07/cropped-letswrite512-1.jpg"/>
+
+  </head>
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="../index.html">Carousel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./RandomSelector/index.html">今天喝什麼</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Club_Date/index.html">營業時間</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./Mind test/index.html">餐點選擇機</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/youtube_api/main.js">形象廣告</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./youtube_api/index.html">形象廣告</a>
+            </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./PDP quiz/index.html">PDP測驗</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">地圖</a>
+        </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+      <div class="container marketing">
+        <hr class="featurette-divider">
+
+      <!-- 搜尋框 -->
+      <div class="row">
+        <div class="col google-map">
+          <h5>Search：</h5>
+          <div class="form-group">
+            <input type="text" class="form-control" ref="site" v-model="site">
+          </div>
+        </div>
+      </div>
+
+      <!-- 放google map的div -->
+      <div class="row">
+        <div class="col google-map">
+            <h5>Google Map：</h5>
+          <div id="map" class="embed-responsive embed-responsive-16by9"></div>
+        </div>
+      </div>
+
+      <hr>
+
+     
+
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-17hthb4NwwmzXeYQvKBjL4qG1Lg3Rac&libraries=places"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+    <!-- map -->
+    <script>
+      const googleMap = new Vue({
+        el: '#app',
+        data: {
+          map: null,
+          autocomplete: null,
+          site: '', // place API要綁定的搜尋框
+          place: null // 存place確定後回傳的資料
+        },
+        methods: {
+          // init google map
+          initMap() {
+
+            let location = {
+              lat: 24.970079,
+              lng: 121.263165
+            };
+
+            this.map = new google.maps.Map(document.getElementById('map'), {
+              center: location,
+              zoom: 16
+            });
+          },
+          // 地址自動完成 + 地圖的中心移到輸入結果的地址上
+          siteAuto() {
+
+            let options = {
+              componentRestrictions: { country: 'tw' } // 限制在台灣範圍
+            };
+            this.autocomplete = new google.maps.places.Autocomplete(this.$refs.site, options);
+            this.autocomplete.addListener('place_changed', () => {
+              this.place = this.autocomplete.getPlace();
+              if(this.place.geometry) {
+                let searchCenter = this.place.geometry.location;
+                this.map.panTo(searchCenter); // panTo是平滑移動、setCenter是直接改變地圖中心
+                
+                // 放置標記
+                let marker = new google.maps.Marker({
+                  position: searchCenter,
+                  map: this.map
+                });
+
+                // info window
+                let infowindow = new google.maps.InfoWindow({
+                  content: this.place.formatted_address
+                });
+                infowindow.open(this.map, marker);
+
+              }
+            });
+          }
+        },
+        mounted() {
+          window.addEventListener('load', () => {
+
+            this.initMap();
+            this.siteAuto();
+
+          });
+        }
+      })
+    </script>
+  </hr>
+  </div>
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="assets/js/vendor/popper.min.js"></script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="assets/js/vendor/holder.min.js"></script>
+  </body>
+</html>
